@@ -67,9 +67,8 @@ class Exago(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("cmake@3.18:", type="build")
 
     # Profiling and optimizations
-    depends_on("hiop+deepchecking", when="+hiop~full_optimizations")
-    depends_on("hiop~deepchecking", when="+hiop+full_optimizations")
-    depends_on("hiop+full_optimizations", when="+hiop+full_optimizations")
+    depends_on("hiop+deepchecking~full_optimizations", when="+hiop~full_optimizations")
+    depends_on("hiop~deepchecking+full_optimizations", when="+hiop+full_optimizations")
 
     # Force RelWithDebInfo when not using optimizations 
     conflicts("build_type=Release", when="~full_optimizations", msg="Use RelWithDebInfo when not using optimizations")
