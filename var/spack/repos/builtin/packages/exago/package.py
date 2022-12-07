@@ -65,8 +65,11 @@ class Exago(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("umpire", when="+raja")
 
     depends_on("umpire@6.0.0", when="@1.1.0: +raja")
+    depends_on("umpire@2022.03.1:", when="@1.5.1: +raja")
     depends_on("raja@0.14.0", when="@1.1.0: +raja")
+    depends_on("raja@2022.03.0:", when="@1.5.1: +raja")
     depends_on("camp@0.2.3", when="@1.1.0: +raja")
+    depends_on("camp@2022.03.2:", when="@1.5.1: +raja")
 
     # Some allocator code in Umpire only works with static libs
     depends_on("umpire+cuda~shared", when="+raja+cuda")
