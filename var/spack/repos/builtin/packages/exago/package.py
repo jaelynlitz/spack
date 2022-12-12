@@ -15,7 +15,6 @@ class Exago(CMakePackage, CudaPackage, ROCmPackage):
     git = "https://gitlab.pnnl.gov/exasgd/frameworks/exago.git"
     maintainers = ["ryandanehy", "CameronRutherford", "pelesh"]
 
-    version("1.5.1", branch="develop", submodules=True)
     version("1.5.0", commit="227f49573a28bdd234be5500b3733be78a958f15", submodules=True)
     version("1.4.1", commit="ea607c685444b5f345bfdc9a59c345f0f30adde2", submodules=True)
     version("1.4.0", commit="4f4c3fdb40b52ace2d6ba000e7f24b340ec8e886", submodules=True)
@@ -65,12 +64,12 @@ class Exago(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("raja", when="+raja")
     depends_on("umpire", when="+raja")
 
-    depends_on("umpire@6.0.0", when="@1.1.0: +raja")
-    depends_on("umpire@2022.03.1:", when="@1.5.1: +raja")
-    depends_on("raja@0.14.0", when="@1.1.0: +raja")
-    depends_on("raja@2022.03.0:", when="@1.5.1: +raja")
-    depends_on("camp@0.2.3", when="@1.1.0: +raja")
-    depends_on("camp@2022.03.2:", when="@1.5.1: +raja")
+    depends_on("umpire@6.0.0", when="@1.1.0:1.5.0 +raja")
+    depends_on("umpire@2022.03.1:", when="@develop: +raja")
+    depends_on("raja@0.14.0", when="@1.1.0:1.5.0 +raja")
+    depends_on("raja@2022.03.0:", when="@develop: +raja")
+    depends_on("camp@0.2.3", when="@1.1.0:1.5.0 +raja")
+    depends_on("camp@2022.03.2:", when="@develop: +raja")
 
     # Some allocator code in Umpire only works with static libs
     depends_on("umpire+cuda~shared", when="+raja+cuda")
