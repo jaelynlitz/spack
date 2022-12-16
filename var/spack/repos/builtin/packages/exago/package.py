@@ -39,6 +39,9 @@ class Exago(CMakePackage, CudaPackage, ROCmPackage):
         "+python", when="+ipopt+rocm", msg="Python bindings require -fPIC with Ipopt for rocm."
     )
 
+    #Logging
+    variant("logging", default=True, description="Enable/Disable logging")
+
     # Solver options
     variant("hiop", default=False, description="Enable/Disable HiOp")
     variant("ipopt", default=False, description="Enable/Disable IPOPT")
@@ -176,6 +179,7 @@ class Exago(CMakePackage, CudaPackage, ROCmPackage):
                 self.define_from_variant("EXAGO_ENABLE_HIOP", "hiop"),
                 self.define_from_variant("EXAGO_ENABLE_IPOPT", "ipopt"),
                 self.define_from_variant("EXAGO_ENABLE_PYTHON", "python"),
+                self.define_from_variant("EXAGO_ENABLE_LOGGING", "logging"),
             ]
         )
 
