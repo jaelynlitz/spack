@@ -115,11 +115,11 @@ class Hiop(CMakePackage, CudaPackage, ROCmPackage):
 
     depends_on("ginkgo@1.5.0.glu_experimental", when="+ginkgo")
 
-    conflicts(
-        "+shared",
-        when="+cuda+raja",
-        msg="umpire+cuda exports device code and requires static libs",
-    )
+    #conflicts(
+    #    "+shared",
+    #    when="+cuda+raja",
+    #    msg="umpire+cuda exports device code and requires static libs",
+    #)
     conflicts("+cusolver", when="~cuda", msg="Cusolver requires CUDA")
     conflicts("+cusolver", when="@:0.5", msg="Cusolver support was introduced in HiOp 0.6")
 

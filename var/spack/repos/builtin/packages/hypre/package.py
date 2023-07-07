@@ -115,7 +115,7 @@ class Hypre(AutotoolsPackage, CudaPackage, ROCmPackage):
     conflicts("+unified-memory", when="~cuda~rocm")
     conflicts("+gptune", when="~mpi")
     # Umpire device allocator exports device code, which requires static libs
-    conflicts("+umpire", when="+shared+cuda")
+    #conflicts("+umpire", when="+shared+cuda")
 
     # Patch to build shared libraries on Darwin does not apply to
     # versions before 2.13.0
