@@ -30,6 +30,8 @@ class Coinhsl(AutotoolsPackage):
     # CoinHSL has a few versions that vary with respect to stability/features
     # and licensing terms.
 
+    version("2023.11.17", sha256="43438fb9317dd4648625a6f5dd46ffedf1d33bd47d05885805b651fe93729065")
+
     # Version 2019.05.21 is a full-featured "release candidate"
     # version available via an "academic license" that can be used for
     # personal teaching and research purposes only. For a full list of
